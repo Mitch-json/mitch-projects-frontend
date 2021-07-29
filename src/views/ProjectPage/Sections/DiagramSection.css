@@ -1,0 +1,12 @@
+.diagram-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+}

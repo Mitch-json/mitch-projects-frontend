@@ -1,0 +1,16 @@
+.documentation-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+.documentation p{
+    font-size: 18px;
+}
+
+
+.title{
+    width: 100%;
+    text-align: center;
+}

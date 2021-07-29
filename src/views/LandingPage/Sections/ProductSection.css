@@ -1,0 +1,15 @@
+.card-div{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+.card-div a{
+    margin: auto;
+    margin-bottom: 30px;
+}
+.title{
+    width: 100%;
+    text-align: center;
+}

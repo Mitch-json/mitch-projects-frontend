@@ -1,0 +1,20 @@
+.button-div{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+.button-div button{
+    margin: auto;
+}
+.title{
+    width: 100%;
+    justify-content: center;
+}
+.admin{
+    padding-bottom: 70px;
+}
+.a-tag{
+    margin: auto;
+}

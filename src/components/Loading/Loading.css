@@ -1,0 +1,15 @@
+.parallex{
+    max-height: 450px !important;
+}
+#loading-div{
+   
+}
+#loading-div img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    max-width: 80px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
