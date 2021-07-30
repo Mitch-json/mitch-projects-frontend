@@ -34,7 +34,8 @@ export default function HeaderLinks(props) {
         type: "SET_LOGOUT_STATE",
         payload: {
           userId: '',
-          userName: ''
+          userName: '',
+          email: ''
         }
       });
       Axios({
@@ -42,6 +43,7 @@ export default function HeaderLinks(props) {
           url: 'https://still-brook-51810.herokuapp.com/api/logout',
           withCredentials: true
       });
+
       props.history.push({
           pathname: '/login'
       });
