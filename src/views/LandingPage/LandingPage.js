@@ -20,6 +20,7 @@ import TeamSection from "./Sections/TeamSection.js";
 import ProductSection from "./Sections/ProductSection.js";
 import WorkSection from "./Sections/WorkSection.js";
 import Loading from "../../components/Loading/Loading.js";
+import { ToastContainer } from "react-toastify";
 
 // Sections for this page
 
@@ -54,6 +55,7 @@ export default function LandingPage(props) {
 
   return (
     <div>
+      <ToastContainer />
       <Header
         color="transparent"
         routes={dashboardRoutes}

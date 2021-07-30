@@ -10,7 +10,6 @@ import './TeamSection.css'
 // core components
 import GridContainer from "../../../components/Grid/GridContainer.js";
 import GridItem from "../../../components/Grid/GridItem.js";
-import Button from "../../../components/CustomButtons/Button.js";
 import Card from "../../../components/Card/Card.js";
 import CardBody from "../../../components/Card/CardBody.js";
 import CardFooter from "../../../components/Card/CardFooter.js";
@@ -20,6 +19,7 @@ import styles from "../../../assets/jss/material-kit-react/views/landingPageSect
 import team1 from "../../../assets/img/faces/Mitch.png";
 import team2 from "../../../assets/img/faces/Mitch.png";
 import team3 from "../../../assets/img/faces/Mitch.png";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles(styles);
 
@@ -47,23 +47,17 @@ export default function TeamSection() {
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  I am a one man team and i possess programming skills such as : Full Stack Web Development, Mobile App Development, Data Science, MicroProcessor Project Development, Database Management Systems.
+                </p>
+                <p className={classes.description}>
+                  I am currently studying Electrical and Electronics Engineering at the University Of Nairobi. 
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
                 <Button
                   justIcon
                   color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-twitter"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
+                  href='https://www.instagram.com/its.mitch._/'
                   className={classes.margin5}
                 >
                   <i className={classes.socials + " fab fa-instagram"} />
@@ -71,6 +65,7 @@ export default function TeamSection() {
                 <Button
                   justIcon
                   color="transparent"
+                  href='https://web.facebook.com/cliqq.jagger/'
                   className={classes.margin5}
                 >
                   <i className={classes.socials + " fab fa-facebook"} />
