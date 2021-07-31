@@ -12,72 +12,38 @@ function Login(props) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    
-
-    // const googleLogin = async()=>{
-    //   let timer: NodeJS.Timeout | null = null;
-    //   const googleLoginUrl = "https://still-brook-51810.herokuapp.com/api/login/google"
-    //   const newWindow = window.open(googleLoginUrl ,"_blank", "width=500, height=600")
-      
-    //   if(newWindow){
-    //     timer = setInterval(() => {
-    //       if (newWindow.closed) {
-    //         if (timer) {
-    //           clearInterval(timer)
-    //         }
-    //         props.history.push({
-    //             pathname: '/dashboard'
-    //         });
-    //       } 
-    //     }, 500);
-    //   }
-    // }
-    // const FacebookLogin = async()=>{
-    //   let timer: NodeJS.Timeout | null = null;
-    //   const facebookLoginUrl = "https://still-brook-51810.herokuapp.com/api/login/facebook"
-    //   const newWindow = window.open(facebookLoginUrl ,"_blank", "width=500, height=600")
-      
-    //   if(newWindow){
-    //     timer = setInterval(() => {
-    //       if (newWindow.closed) {
-    //         if (timer) {
-    //           clearInterval(timer)
-    //         }
-    //         props.history.push({
-    //             pathname: '/dashboard'
-    //         });
-    //       } 
-    //     }, 500);
-    //   }
-    // }
 
     const responseGoogle = (response) => {
-      Axios({
-          method: 'POST',
-          url: 'https://still-brook-51810.herokuapp.com/api/login/google',
-          data:{
-              username: response.profileObj.name,
-              email: response.profileObj.email,
-              googleId: response.profileObj.googleId
-          },
-          withCredentials: true
-      }).then(res => {
-          if (res.data.user) {
-            store.dispatch({
-              type: "SET_LOGIN_STATE",
-              payload: {
-                userId: res.data.user._id,
-                userName: res.data.user.name,
-                email: res.data.user.email
-              }
-            });
-            props.history.push({
-                pathname: '/dashboard'
-            });
-          } else {
-            toast.error(res.data.err)
-          }
-      })
+      if (response.profileObj) {
+        Axios({
+            method: 'POST',
+            url: 'https://still-brook-51810.herokuapp.com/api/login/google',
+            data:{
+                username: response.profileObj.name,
+                email: response.profileObj.email,
+                googleId: response.profileObj.googleId
+            },
+            withCredentials: true
+        }).then(res => {
+            if (res.data.user) {
+              store.dispatch({
+                type: "SET_LOGIN_STATE",
+                payload: {
+                  userId: res.data.user._id,
+                  userName: res.data.user.name,
+                  email: res.data.user.email
+                }
+              });
+              props.history.push({
+                  pathname: '/dashboard'
+              });
+            } else {
+              toast.error(res.data.err)
+            }
+        })
+      } else {
+        
+      }
     }
 
     const responseGooglefailure = (response)=>{
@@ -86,32 +52,36 @@ function Login(props) {
 
     const responseFacebook = (response) => {
       console.log(response.email, response.name, response.id);
-      Axios({
-          method: 'POST',
-          url: 'https://still-brook-51810.herokuapp.com/api/login/facebook',
-          data:{
-              username: response.name,
-              email: response.email,
-              facebookId: response.id
-          },
-          withCredentials: true
-      }).then(res => {
-          if (res.data.user) {
-            store.dispatch({
-              type: "SET_LOGIN_STATE",
-              payload: {
-                userId: res.data.user._id,
-                userName: res.data.user.name,
-                email: res.data.user.email
-              }
-            });
-            props.history.push({
-                pathname: '/dashboard'
-            });
-          } else {
-            toast.error(res.data.err)
-          }
-      })
+      if (response.id) {
+        Axios({
+            method: 'POST',
+            url: 'https://still-brook-51810.herokuapp.com/api/login/facebook',
+            data:{
+                username: response.name,
+                email: response.email,
+                facebookId: response.id
+            },
+            withCredentials: true
+        }).then(res => {
+            if (res.data.user) {
+              store.dispatch({
+                type: "SET_LOGIN_STATE",
+                payload: {
+                  userId: res.data.user._id,
+                  userName: res.data.user.name,
+                  email: res.data.user.email
+                }
+              });
+              props.history.push({
+                  pathname: '/dashboard'
+              });
+            } else {
+              toast.error(res.data.err)
+            }
+        })
+      } else {
+        
+      }
     }
 
     const handleSubmit = (e)=>{
@@ -159,7 +129,7 @@ function Login(props) {
                   />
                   <FacebookLogin
                     appId="3122729644629296"
-                    autoLoad={true}
+                    autoLoad={false}
                     textButton="   Login With Facebook"
                     fields="name,email,picture"
                     callback={responseFacebook}
