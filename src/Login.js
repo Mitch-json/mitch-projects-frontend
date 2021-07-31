@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import FacebookLogin from 'react-facebook-login';
 import {GoogleLogin} from 'react-google-login';
 import Axios from 'axios';
 import store from './redux/store';
+import './Login.css'
 
 function Login(props) {
     const authSvg = 'https://raw.githubusercontent.com/Mohammed-Abdelhady/FULL-MERN-AUTH-Boilerplate/588f77e6b490878c99a4506821fd19e4e458b081/client-react/src/assests/auth.svg';
@@ -13,41 +14,104 @@ function Login(props) {
     const [password, setPassword] = useState('');
     
 
-    const googleLogin = async()=>{
-      let timer: NodeJS.Timeout | null = null;
-      const googleLoginUrl = "https://still-brook-51810.herokuapp.com/api/login/google"
-      const newWindow = window.open(googleLoginUrl ,"_blank", "width=500, height=600")
+    // const googleLogin = async()=>{
+    //   let timer: NodeJS.Timeout | null = null;
+    //   const googleLoginUrl = "https://still-brook-51810.herokuapp.com/api/login/google"
+    //   const newWindow = window.open(googleLoginUrl ,"_blank", "width=500, height=600")
       
-      if(newWindow){
-        timer = setInterval(() => {
-          if (newWindow.closed) {
-            if (timer) {
-              clearInterval(timer)
-            }
+    //   if(newWindow){
+    //     timer = setInterval(() => {
+    //       if (newWindow.closed) {
+    //         if (timer) {
+    //           clearInterval(timer)
+    //         }
+    //         props.history.push({
+    //             pathname: '/dashboard'
+    //         });
+    //       } 
+    //     }, 500);
+    //   }
+    // }
+    // const FacebookLogin = async()=>{
+    //   let timer: NodeJS.Timeout | null = null;
+    //   const facebookLoginUrl = "https://still-brook-51810.herokuapp.com/api/login/facebook"
+    //   const newWindow = window.open(facebookLoginUrl ,"_blank", "width=500, height=600")
+      
+    //   if(newWindow){
+    //     timer = setInterval(() => {
+    //       if (newWindow.closed) {
+    //         if (timer) {
+    //           clearInterval(timer)
+    //         }
+    //         props.history.push({
+    //             pathname: '/dashboard'
+    //         });
+    //       } 
+    //     }, 500);
+    //   }
+    // }
+
+    const responseGoogle = (response) => {
+      Axios({
+          method: 'POST',
+          url: 'https://still-brook-51810.herokuapp.com/api/login/google',
+          data:{
+              username: response.profileObj.name,
+              email: response.profileObj.email,
+              googleId: response.profileObj.googleId
+          },
+          withCredentials: true
+      }).then(res => {
+          if (res.data.user) {
+            store.dispatch({
+              type: "SET_LOGIN_STATE",
+              payload: {
+                userId: res.data.user._id,
+                userName: res.data.user.name,
+                email: res.data.user.email
+              }
+            });
             props.history.push({
                 pathname: '/dashboard'
             });
-          } 
-        }, 500);
-      }
+          } else {
+            toast.error(res.data.err)
+          }
+      })
     }
-    const FacebookLogin = async()=>{
-      let timer: NodeJS.Timeout | null = null;
-      const facebookLoginUrl = "https://still-brook-51810.herokuapp.com/api/login/facebook"
-      const newWindow = window.open(facebookLoginUrl ,"_blank", "width=500, height=600")
-      
-      if(newWindow){
-        timer = setInterval(() => {
-          if (newWindow.closed) {
-            if (timer) {
-              clearInterval(timer)
-            }
+
+    const responseGooglefailure = (response)=>{
+      toast.error(response)
+    }
+
+    const responseFacebook = (response) => {
+      console.log(response.email, response.name, response.id);
+      Axios({
+          method: 'POST',
+          url: 'https://still-brook-51810.herokuapp.com/api/login/facebook',
+          data:{
+              username: response.name,
+              email: response.email,
+              facebookId: response.id
+          },
+          withCredentials: true
+      }).then(res => {
+          if (res.data.user) {
+            store.dispatch({
+              type: "SET_LOGIN_STATE",
+              payload: {
+                userId: res.data.user._id,
+                userName: res.data.user.name,
+                email: res.data.user.email
+              }
+            });
             props.history.push({
                 pathname: '/dashboard'
             });
-          } 
-        }, 500);
-      }
+          } else {
+            toast.error(res.data.err)
+          }
+      })
     }
 
     const handleSubmit = (e)=>{
@@ -86,27 +150,21 @@ function Login(props) {
             </h1>
             <div className='w-full flex-1 mt-8 text-indigo-500'>
               <div className='flex flex-col items-center'>
-                
-                  <button
-                    onClick={googleLogin}
-                    className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline'
-                  >
-                    <div className=' p-2 rounded-full '>
-                      <i className='fab fa-google ' />
-                    </div>
-                    <span className='ml-4'>Sign In with Google</span>
-                  </button>
-                
-                  <button
-                    onClick={FacebookLogin}
-                    className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5'
-                  >
-                    <div className=' p-2 rounded-full '>
-                      <i className='fab fa-facebook' />
-                    </div>
-                    <span className='ml-4'>Sign In with Facebook</span>
-                  </button>
-
+                  <GoogleLogin
+                    className="Google-Login w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
+                    clientId="567025776112-2ldg7s8ekmlbvhnomou0igp2dtrdi72f.apps.googleusercontent.com"
+                    buttonText="Login with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGooglefailure}
+                  />
+                  <FacebookLogin
+                    appId="3122729644629296"
+                    autoLoad={true}
+                    textButton="   Login With Facebook"
+                    fields="name,email,picture"
+                    callback={responseFacebook}
+                    icon="fa-facebook"
+                  />
                 <a
                   className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3
            bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5'
