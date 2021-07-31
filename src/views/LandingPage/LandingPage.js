@@ -84,7 +84,7 @@ export default function LandingPage(props) {
                   <Button
                     color="info"
                     size=""
-                    href="https://github.com/Mitch-json"
+                    href="https://github.com/Mitch-json?tab=repositories"
                     rel="noopener noreferrer"
                     target="_blank"
                   >

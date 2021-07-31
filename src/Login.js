@@ -130,10 +130,12 @@ function Login(props) {
                   <FacebookLogin
                     appId="3122729644629296"
                     autoLoad={false}
-                    textButton="   Login With Facebook"
+                    textButton="&nbsp;&nbsp;Login with Facebook"
                     fields="name,email,picture"
                     callback={responseFacebook}
-                    icon="fa-facebook"
+                    cssClass="my-facebook-button-class"
+                    icon={<i className="fab fa-facebook" style={{marginLeft:'5px', padding: "10px", fontSize: 18}}>
+                    </i>}
                   />
                 <a
                   className='w-full max-w-xs font-bold shadow-sm rounded-lg py-3

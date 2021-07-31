@@ -117,7 +117,7 @@ export default function LandingPage(props) {
                         </div>
                     </Parallax>
                     <div className={classNames(classes.main, classes.mainRaised)}>
-                        <div className={classes.container}>
+                        <div className={classes.container} style={{paddingBottom: "40px"}}>
                             {project.videoLink ? <VideoSection videoLink={project.videoLink}/>: <div></div>}
                             {project.diagram ? <DiagramSection diagram={project.diagram}/>: <div></div>}
                             {project.documentation ? <DocumentationSection documentation={project.documentation}/>: <div></div>}
