@@ -84,10 +84,11 @@ export default function LandingPage(props) {
                   <Button
                     color="info"
                     size=""
-                    href="#"
+                    href="https://github.com/Mitch-json"
                     rel="noopener noreferrer"
+                    target="_blank"
                   >
-                    Get Started
+                    View My Github
                   </Button>
                 </GridItem>
               </GridContainer>
