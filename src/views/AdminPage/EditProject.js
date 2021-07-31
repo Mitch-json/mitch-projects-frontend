@@ -47,7 +47,7 @@ export default function EditProject(props) {
         }}
         {...rest}
       />
-      <Parallax filter image="https://static.vecteezy.com/system/resources/previews/001/963/666/original/online-distance-learning-education-tiny-people-character-illustration-suitable-for-wallpaper-banner-background-card-book-illustration-and-web-landing-page-vector.jpg">
+      <Parallax filter image="https://i.pinimg.com/originals/43/a7/e5/43a7e5b9897b7e64b8b01edf6f8f6f34.jpg">
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>

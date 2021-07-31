@@ -70,7 +70,7 @@ export default function AdminPage(props) {
           <Loading />
       ):(
           <div>
-            <Parallax filter image="https://www.wallpaperuse.com/wallp/15-151030_m.jpg">
+            <Parallax filter image="https://res.cloudinary.com/killer-infographics-inc/image/upload/v1582154400/Blog%20Workbench%20Headers/Motion%20Graphics%20Design%20Agency%20Illustration.jpg">
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>

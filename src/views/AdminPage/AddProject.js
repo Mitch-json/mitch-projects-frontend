@@ -46,7 +46,7 @@ export default function AdminPage(props) {
         }}
         {...rest}
       />
-      <Parallax filter image="https://www.teahub.io/photos/full/133-1338303_best-52-web-development-wallpaper-on-hipwallpaper-spider.jpg">
+      <Parallax filter image="https://res.cloudinary.com/killer-infographics-inc/image/upload/v1582154400/Blog%20Workbench%20Headers/Motion%20Graphics%20Design%20Agency%20Illustration.jpg">
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
