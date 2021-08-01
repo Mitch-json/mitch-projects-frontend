@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     doc:{
         margin: "auto",
         marginBottom: "30px",
-        maxWidth: 600,
+        maxWidth: 1000,
         paddingBottom: 100
     }
 });
