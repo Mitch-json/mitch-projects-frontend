@@ -80,7 +80,7 @@ export default function AdminSection(props) {
                     <Button 
                       color="primary"
                       size=""
-                      href={`/admin/edit-project/${project._id}`}
+                      href={`/admin/edit-project/${project._id}#`}
                       rel="noopener noreferrer"
                     >
                       <EditIcon />  Edit
