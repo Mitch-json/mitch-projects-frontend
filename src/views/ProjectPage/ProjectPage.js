@@ -79,7 +79,7 @@ export default function LandingPage(props) {
                                 <Button
                                     color="success"
                                     size=""
-                                    href="/dashboard#"
+                                    href="/dashboard"
                                     rel="noopener noreferrer"
                                 >
                                     Back
