@@ -61,7 +61,7 @@ export default function ProductSection(props) {
           <h2 className={classe.title}>All Projects</h2>
         </div>
         {props.projects.map(project=>
-          <Link to={`https://mitch-projects.herokuapp.com/projects/${project._id}/#`}>
+          <Link to={`https://mitch-projects.herokuapp.com/projects/${project._id}#`}>
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
