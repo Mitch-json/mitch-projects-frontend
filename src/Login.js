@@ -15,6 +15,7 @@ function Login(props) {
 
     const responseGoogle = (response) => {
       if (response.profileObj) {
+        toast.success("Loading....Please wait");
         Axios({
             method: 'POST',
             url: 'https://still-brook-51810.herokuapp.com/api/login/google',
