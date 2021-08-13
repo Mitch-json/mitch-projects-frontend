@@ -8,7 +8,7 @@ function Dashboard(props) {
     const loginState = loadFromLocalStorage()
     let username;
     if(loginState === undefined || !loginState.isLoggedIn){
-        props.history.push('/login');
+        
     }else{
         if(loginState.email == "mitchjaga77@gmail.com"){
             props.history.push('/admin')

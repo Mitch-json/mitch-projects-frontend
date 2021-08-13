@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { Link, useParams } from 'react-router-dom'
 import Axios from 'axios';
 
-function Activate() {
+function Activate(props) {
     let {token} = useParams();
     console.log(token)
     const [disabled, setDisabled] = useState(false);
@@ -20,7 +20,12 @@ function Activate() {
         fetch('https://still-brook-51810.herokuapp.com/api/email-activate', requestOptions)
             .then(response => response.json())
             .then(data => {
-              toast(data.message);
+              if (data.message) {
+                toast(data.message);
+                props.history.push('/login')
+              } else {
+                toast.error(data.error)
+              }
         });
     }
 

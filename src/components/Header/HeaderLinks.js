@@ -29,6 +29,7 @@ export default function HeaderLinks(props) {
   const loginState = loadFromLocalStorage()
   let username = loginState.userName;
 
+
   const logout = () => {
     store.dispatch({
         type: "SET_LOGOUT_STATE",
@@ -48,36 +49,55 @@ export default function HeaderLinks(props) {
           pathname: '/login'
       });
   };
+
+  const login = () => {
+    props.history.push('/login')
+  }
+  const register = () => {
+    props.history.push('/register')
+  }
     
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText={username.toUpperCase()}
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          buttonIcon={AccountCircle}
-          dropdownList={[
-            <Link to="/profile" className={classes.dropdownLink}>
-              <i class="fas fa-cog"></i>
-              PROFILE
-            </Link>,
-            
-          ]}
-        />
+        {props.username ? 
+          <CustomDropdown
+            noLiPadding
+            buttonText={username.toUpperCase()}
+            buttonProps={{
+              className: classes.navLink,
+              color: "transparent"
+            }}
+            buttonIcon={AccountCircle}
+            dropdownList={[
+              <Link to="/profile" className={classes.dropdownLink}>
+                <i class="fas fa-cog"></i>
+                PROFILE
+              </Link>,
+              
+            ]}
+          /> : 
+          <Button
+            onClick={logout}
+            className={classes.navLink}
+            color="transparent"
+          >
+            <ExitToApp className={classes.icons} /> LOGIN / REGISTER
+          </Button>
+        }
       </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          onClick={logout}
-          className={classes.navLink}
-          color="transparent"
-        >
-          <ExitToApp className={classes.icons} /> LOGOUT
-        </Button>
-      </ListItem>
+      {props.username ? 
+        <ListItem className={classes.listItem}>
+          <Button
+            onClick={login}
+            className={classes.navLink}
+            color="transparent"
+          >
+            <ExitToApp className={classes.icons} /> LOGOUT
+          </Button>
+        </ListItem> :
+        <ListItem className={classes.listItem}></ListItem>
+      }
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
           <IconButton aria-label="Delete">

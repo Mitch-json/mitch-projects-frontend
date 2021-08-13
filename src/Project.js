@@ -8,7 +8,7 @@ function Project(props) {
     const loginState = loadFromLocalStorage()
     let username;
     if(loginState === undefined || !loginState.isLoggedIn){
-        props.history.push('/login');
+        
     }else{
         username = loginState.userName;
     }

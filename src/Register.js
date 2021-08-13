@@ -17,7 +17,7 @@ function Register() {
     const handleSubmit = (e)=>{
         e.preventDefault();
         if(!name || !email || !password2 || !password1){
-            toast('Please ensure name, email and password are filled');
+            toast.error('Please ensure name, email and password are filled');
         }else{
             if(password1 !== password2){
                 toast('Passwords do not match');
