@@ -8,7 +8,7 @@ function Admin(props) {
     const loginState = loadFromLocalStorage()
     let username;
     if(loginState === undefined || !loginState.isLoggedIn){
-        props.history.push('/login');
+        props.history.push('/dashboard');
     }else{
         if (loginState.email == "mitchjaga77@gmail.com") {
             username = loginState.userName;

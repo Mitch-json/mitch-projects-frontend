@@ -51,7 +51,7 @@ export default function HeaderLinks(props) {
       });
 
       props.history.push({
-          pathname: '/login'
+          pathname: '/dashboard'
       });
   };
 
@@ -94,7 +94,7 @@ export default function HeaderLinks(props) {
       {props.username ? 
         <ListItem className={classes.listItem}>
           <Button
-            onClick={login}
+            onClick={logout}
             className={classes.navLink}
             color="transparent"
           >
