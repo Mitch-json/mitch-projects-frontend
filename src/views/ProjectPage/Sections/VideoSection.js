@@ -61,6 +61,7 @@ export default function ProductSection(props) {
                   width="100%"
                   className={classes.CardMedia}
                   src={props.videoLink}
+                  allowFullScreen={true}
                 />
                 <CardContent>
                   
