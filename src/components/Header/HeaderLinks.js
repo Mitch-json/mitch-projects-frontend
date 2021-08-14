@@ -27,7 +27,12 @@ const useStyles = makeStyles(styles);
 export default function HeaderLinks(props) {
   const classes = useStyles();
   const loginState = loadFromLocalStorage()
-  let username = loginState.userName;
+  if (loginState === undefined || !loginState.isLoggedIn) {
+    let username;
+  } else {
+    let username = loginState.userName;
+    
+  }
 
 
   const logout = () => {
