@@ -83,9 +83,9 @@ export default function HeaderLinks(props) {
             ]}
           /> : 
           <Button
-            onClick={logout}
             className={classes.navLink}
             color="transparent"
+            href="/login"
           >
             <ExitToApp className={classes.icons} /> LOGIN / REGISTER
           </Button>
