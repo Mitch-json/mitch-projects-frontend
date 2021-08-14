@@ -68,7 +68,7 @@ export default function HeaderLinks(props) {
         {props.username ? 
           <CustomDropdown
             noLiPadding
-            buttonText={username.toUpperCase()}
+            buttonText={props.username.toUpperCase()}
             buttonProps={{
               className: classes.navLink,
               color: "transparent"

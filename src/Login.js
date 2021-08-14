@@ -39,9 +39,15 @@ function Login(props) {
                   email: res.data.user.email
                 }
               });
-              props.history.push({
-                  pathname: '/dashboard'
-              });
+              if (res.data.user.email== "mitchjaga77@gmail.com") {
+                props.history.push({
+                    pathname: '/admin'
+                });
+              } else {
+                props.history.push({
+                    pathname: '/dashboard'
+                });
+              }
             } else {
               toast.error(res.data.err)
             }
