@@ -25,7 +25,7 @@ function EditProductSection(props) {
     }, [])
 
     const getProject = (id)=>{
-        fetch(`https://still-brook-51810.herokuapp.com/api/projects/${id}`).then(res => {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}`).then(res => {
             if(res.ok){
             return res.json()
             } 
@@ -50,7 +50,7 @@ function EditProductSection(props) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title: title, description: description, documentation: documentation, liveLink: liveLink, videoLink: videoLink, codeLink: codeLink, diagram: diagImage, thumbImage: thumbImage })
         };
-        fetch(`https://still-brook-51810.herokuapp.com/api/projects/edit-project/${props.id}`, requestOptions)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/edit-project/${props.id}`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 if(data.msg){

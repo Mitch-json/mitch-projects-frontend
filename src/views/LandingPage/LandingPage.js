@@ -40,7 +40,7 @@ export default function LandingPage(props) {
   }, [])
 
   const getProjects = () => {
-    fetch("https://still-brook-51810.herokuapp.com/api/projects").then(res => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects`).then(res => {
         if(res.ok){
           return res.json()
         } 

@@ -31,7 +31,7 @@ export default function WorkSection() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name: name, email: email, message: message})
       };
-      fetch('https://still-brook-51810.herokuapp.com/api/send-message', requestOptions)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-message`, requestOptions)
           .then(response => response.json())
           .then(data => {
               if(data.msg){

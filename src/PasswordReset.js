@@ -12,7 +12,7 @@ function PasswordReset() {
         setClassName('mt-5 tracking-wide font-semibold bg-gray-500 text-gray-100 w-full py-4 rounded-lg hover:bg-gray-500 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none')
         Axios({
             method: 'POST',
-            url: 'https://still-brook-51810.herokuapp.com/api/password-reset/email',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/password-reset/email`,
             data: {
                 email: email,
                 password: password

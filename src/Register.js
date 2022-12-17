@@ -25,7 +25,7 @@ function Register() {
                 setPassword2('')
             }else{
                 Axios({
-                    url: `https://still-brook-51810.herokuapp.com/api/register`,
+                    url: `${process.env.REACT_APP_BACKEND_URL}/api/register`,
                     method: 'POST',
                     data: {
                         name: name,

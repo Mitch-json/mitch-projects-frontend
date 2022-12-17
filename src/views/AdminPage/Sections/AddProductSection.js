@@ -26,7 +26,7 @@ function AddProductSection() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title: title, description: description, documentation: documentation, liveLink: liveLink, videoLink: videoLink, codeLink: codeLink, diagram: diagImage, thumbImage: thumbImage })
         };
-        fetch('https://still-brook-51810.herokuapp.com/api/projects/add-project', requestOptions)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/add-project`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 if(data.msg){

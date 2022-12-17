@@ -17,7 +17,7 @@ function Activate(props) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ token: token})
         };
-        fetch('https://still-brook-51810.herokuapp.com/api/email-activate', requestOptions)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/email-activate`, requestOptions)
             .then(response => response.json())
             .then(data => {
               if (data.message) {

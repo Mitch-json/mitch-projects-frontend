@@ -46,7 +46,7 @@ export default function HeaderLinks(props) {
       });
       Axios({
           method: 'GET',
-          url: 'https://still-brook-51810.herokuapp.com/api/logout',
+          url: `${process.env.REACT_APP_BACKEND_URL}/api/logout`,
           withCredentials: true
       });
 

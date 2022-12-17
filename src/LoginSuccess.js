@@ -4,7 +4,7 @@ import './LoginSuccess.css'
 
 function LoginSuccess() {
     useEffect(() => {
-        fetch("https://still-brook-51810.herokuapp.com/api/v1/google/get/details").then(res => {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/google/get/details`).then(res => {
             if(res.ok){
             return res.json()
             } 

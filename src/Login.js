@@ -22,7 +22,7 @@ function Login(props) {
         setLoading(true)
         Axios({
             method: 'POST',
-            url: 'https://still-brook-51810.herokuapp.com/api/login/google',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/login/google`,
             data:{
                 username: response.profileObj.name,
                 email: response.profileObj.email,
@@ -67,7 +67,7 @@ function Login(props) {
         setLoading(true)
         Axios({
             method: 'POST',
-            url: 'https://still-brook-51810.herokuapp.com/api/login/facebook',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/login/facebook`,
             data:{
                 username: response.name,
                 email: response.email,
@@ -100,7 +100,7 @@ function Login(props) {
         e.preventDefault();
         Axios({
             method: 'POST',
-            url: 'https://still-brook-51810.herokuapp.com/api/login',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/login`,
             data:{
                 username: username,
                 password: password

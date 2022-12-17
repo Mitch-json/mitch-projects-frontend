@@ -24,7 +24,7 @@ function Profile(props) {
             if(password1 === password2){
                 Axios({
                     method: 'POST',
-                    url: 'https://still-brook-51810.herokuapp.com/api/profile',
+                    url: `${process.env.REACT_APP_BACKEND_URL}/api/profile`,
                     data: {
                         oldPassword: oldPassword,
                         newPassword: password1,
