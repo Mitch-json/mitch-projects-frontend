@@ -13,7 +13,6 @@ import Profile from './Profile';
 import Project from './Project';
 import PasswordReset from './PasswordReset';
 
-import "./assets/scss/material-kit-react.scss?v=1.9.0";
 import Reset from './Reset';
 import Admin from './Admin';
 import AddProject from './views/AdminPage/AddProject';
