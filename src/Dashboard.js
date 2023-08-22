@@ -10,7 +10,7 @@ function Dashboard(props) {
     if(loginState === undefined || !loginState.isLoggedIn){
         
     }else{
-        if(loginState.email == "mitchjaga77@gmail.com"){
+        if(loginState.email === "mitchjaga77@gmail.com"){
             props.history.push('/admin')
         }
         username = loginState.userName;
