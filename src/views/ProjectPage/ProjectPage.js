@@ -40,12 +40,15 @@ export default function LandingPage(props) {
   }, [])
 
   const getProject = (id)=>{
+      console.log(id)
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-          if (data) {
+        if (data.projects) {
             setProject(data.project)
+            setLoading(false)
+        }else{
+            console.log(data)
             setLoading(false)
           }
       })
