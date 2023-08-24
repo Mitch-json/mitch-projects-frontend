@@ -25,7 +25,7 @@ function EditProductSection(props) {
     }, [])
 
     const getProject = (id)=>{
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}`).then(res => {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/project/${id}`).then(res => {
             if(res.ok){
             return res.json()
             } 

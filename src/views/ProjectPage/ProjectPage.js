@@ -41,7 +41,7 @@ export default function LandingPage(props) {
 
   const getProject = (id)=>{
       console.log(id)
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/projects/${id}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/project/${id}`)
     .then(response => response.json())
     .then(data => {
         if (data.project) {
