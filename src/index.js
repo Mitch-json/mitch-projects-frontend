@@ -19,26 +19,29 @@ import AddProject from './views/AdminPage/AddProject';
 import AdminAdd from './AdminAdd';
 import AdminEdit from './AdminEdit';
 import LoginSuccess from './LoginSuccess';
+import ScrollToTop from './ScrollToTop';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route path='/' exact component={App} />
-      <Route path='/login' exact component={Login} />
-      <Route path='/login/success' exact component={LoginSuccess} />
-      <Route path='/register' exact component={Register} />
-      <Route path='/dashboard' exact component={Dashboard} />
-      <Route path='/profile' exact component={Profile} />
-      <Route path='/users/password/forget' exact component={PasswordReset} />
-      <Route path='/authentication/activate/:token' exact component={Activate} />
-      <Route path='/password-reset/:token' exact component={Reset} />
-      <Route path='/projects/:id' exact component={Project} />
-      
-      
-      <Route path='/admin' exact component={Admin} />
-      <Route path='/admin/add-project' exact component={AdminAdd} />
-      <Route path='/admin/edit-project/:id' exact component={AdminEdit} />
-    </ Switch>
+    <ScrollToTop>
+      <Switch>
+        <Route path='/' exact component={App} />
+        <Route path='/login' exact component={Login} />
+        <Route path='/login/success' exact component={LoginSuccess} />
+        <Route path='/register' exact component={Register} />
+        <Route path='/dashboard' exact component={Dashboard} />
+        <Route path='/profile' exact component={Profile} />
+        <Route path='/users/password/forget' exact component={PasswordReset} />
+        <Route path='/authentication/activate/:token' exact component={Activate} />
+        <Route path='/password-reset/:token' exact component={Reset} />
+        <Route path='/projects/:id' exact component={Project} />
+        
+        
+        <Route path='/admin' exact component={Admin} />
+        <Route path='/admin/add-project' exact component={AdminAdd} />
+        <Route path='/admin/edit-project/:id' exact component={AdminEdit} />
+      </ Switch>
+    </ScrollToTop>
   </ BrowserRouter>,
   document.getElementById('root')
 );
