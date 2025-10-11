@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
-function App(props) {
 
+
+function App(props) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to /dashboard immediately on mount
+    navigate('/dashboard');
+  }, [navigate]);
   return (
     <div>
-      {props.history.push('/dashboard')}
+      {navigate('/dashboard')}
     </div>
   );
 }

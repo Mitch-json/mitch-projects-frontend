@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
-import Axios from 'axios';
-import dotenv from 'dotenv';
-dotenv.config();
+import Axios from 'axios'; 
 
 function Register() {
     const authSvg = 'https://raw.githubusercontent.com/Mohammed-Abdelhady/FULL-MERN-AUTH-Boilerplate/588f77e6b490878c99a4506821fd19e4e458b081/client-react/src/assests/auth.svg';

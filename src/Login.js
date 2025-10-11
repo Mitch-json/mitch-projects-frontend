@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login';
-import {GoogleLogin} from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 import Axios from 'axios';
 import store from './redux/store';
 import './Login.css'
 
-import LoadingOverlay from 'react-loading-overlay';
+import LoadingOverlay from 'react-loading-overlay-ts';
  
 
 function Login(props) {
@@ -18,7 +18,7 @@ function Login(props) {
     const [loading, setLoading] = useState(false)
 
     const responseGoogle = (response) => {
-      if (response.profileObj) {
+      if (response.profileObj) { 
         setLoading(true)
         Axios({
             method: 'POST',
