@@ -49,6 +49,8 @@ export default function LandingPage(props) {
             setProjects(data.projects)
             setLoading(false)
           }
+      }).catch(err => {
+          console.log(err)
       })
   }
 
