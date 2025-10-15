@@ -80,7 +80,7 @@ export default function LandingPage(props) {
                 <GridItem xs={12} sm={12} md={6}>
                   <h1 className={classes.title}>Projects</h1>
                   <h4>
-                    welcome to my projects website where you can view all the projects i have done.....if you are interested click the button below
+                    Welcome. This site features my professional projects across several key technological domains, including Machine Learning, Data Science, Web Development, Database Management, and the Internet of Things. If you're ready to review my work, click the button below.
                   </h4>
                   <br />
                   <Button
