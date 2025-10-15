@@ -43,32 +43,32 @@ export default function TeamSection() {
               <h4 className={classes.cardTitle}>
                 Mitch Macharia
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>AI Engineer | Software Engineer</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  I am a one man team and i possess programming skills such as : Full Stack Web Development, Mobile App Development, Data Science, MicroProcessor Project Development, Database Management Systems.
+                  I possess programming skills such as : Artificial Intelligence, Full Stack Web Development, Mobile App Development, Data Science, MicroProcessor Project Development, Database Management Systems.
                 </p>
                 <p className={classes.description}>
-                  I am currently studying Electrical and Electronics Engineering at the University Of Nairobi. 
+                  I am currently studying Engineering Artificial Intelligence at Carnegie Mellon University. 
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
                 <Button
                   justIcon
                   color="transparent"
-                  href='https://www.instagram.com/its.mitch._/'
+                  href='https://www.linkedin.com/in/mitch-macharia/'
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-instagram"} />
+                  <i className={classes.socials + " fab fa-linkedin"} />
                 </Button>
                 <Button
                   justIcon
                   color="transparent"
-                  href='https://web.facebook.com/cliqq.jagger/'
+                  href='https://github.com/Mitch-json?tab=repositories'
                   className={classes.margin5}
                 >
-                  <i className={classes.socials + " fab fa-facebook"} />
+                  <i className={classes.socials + " fab fa-github"} />
                 </Button>
               </CardFooter>
             </Card>

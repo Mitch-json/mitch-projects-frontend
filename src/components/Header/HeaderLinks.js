@@ -111,7 +111,7 @@ export default function HeaderLinks(props) {
         </Tooltip>*/}
         <Tooltip
           id="instagram-twitter"
-          title="Follow me on twitter"
+          title="Check out my Github"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
@@ -119,45 +119,30 @@ export default function HeaderLinks(props) {
             target="_blank"
             color="transparent"
             className={classes.navLink}
+            href='https://github.com/Mitch-json?tab=repositories'
           >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
+            <i className={classes.socials + " fab fa-github"} />
           </Button>
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
-          title="Follow me on facebook"
+          title="Let's connect on LinkedIn"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
             color="transparent"
-            href="https://web.facebook.com/cliqq.jagger/"
+            href='https://www.linkedin.com/in/mitch-macharia/'
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
+            <i className={classes.socials + " fab fa-linkedin"} />
           </Button>
         </Tooltip>
       </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-tooltip"
-          title="Follow me on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.instagram.com/its.mitch._/"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
-        </Tooltip>
-      </ListItem>
+      
     </List>
   );
 }
